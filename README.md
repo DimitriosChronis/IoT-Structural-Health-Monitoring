@@ -1,25 +1,30 @@
 # 📡 Integrated Structural Health Monitoring (IoT & Vision)
 
 ### 🎯 Overview
-A dual-modal system for real-time infrastructure monitoring. It combines **Signal Processing** (for vibration data) and **Computer Vision** (for surface inspection) to detect structural anomalies automatically.
-
-### ⚙️ Modules
-1.  **Vibration Analysis (IoT):**
-    * Ingests high-frequency acceleration data.
-    * Applies **Fast Fourier Transform (FFT)** to extract natural frequencies.
-    * Uses **Isolation Forest (Unsupervised Learning)** to detect stiffness degradation (damage) in real-time.
-2.  **Surface Inspection (Vision):**
-    * Uses OpenCV to process drone imagery.
-    * Applies Canny Edge Detection and noise filtering to identify and quantify concrete cracks.
-
-### 📊 Dashboard
-![Anomaly Detection](shm_dashboard.png)
-*(Fig 1: The AI successfully flags the "Regime Shift" (Red Dots) immediately after the simulated structural damage occurs at Day 150.)*
-
-### 🛠️ Tech Stack
-* **Signal Processing:** SciPy (FFT), Scikit-Learn (Isolation Forest)
-* **Computer Vision:** OpenCV
-* **Visualization:** Matplotlib
+A dual-modal system designed for automated infrastructure inspection. It combines **Computer Vision** (for surface crack detection using drones/cameras) and **IoT Signal Processing** (for internal damage detection using vibration sensors).
 
 ---
-> ⚠️ **Note:** Source code is available upon request.
+
+### 👁️ Part A: Computer Vision (Surface Crack Detection)
+**Technique:** Using OpenCV to process imagery, applying Gaussian blurring for noise reduction, and Canny Edge Detection to isolate and quantify structural cracks.
+
+![Crack Detection Result](crack_detection.png)
+*(Fig 1: Left: Simulated concrete surface with a crack. Right: The algorithm successfully isolates the crack and calculates its density.)*
+
+---
+
+### 📈 Part B: IoT Vibration Analysis (Internal Damage)
+**Technique:** Ingesting high-frequency acceleration data from sensors. Using **Fast Fourier Transform (FFT)** to extract natural frequencies and an **Isolation Forest (AI)** model to detect stiffness drops instantaneously.
+
+![IoT Dashboard](shm_dashboard.png)
+*(Fig 2: Real-time monitoring dashboard. The AI (Red Dots) instantly flags the structural damage that occurred at Day 150, indicated by the drop in natural frequency.)*
+
+---
+
+### 🛠️ Tech Stack
+* **Vision:** Python, OpenCV, NumPy
+* **IoT Signal Processing:** SciPy (FFT), Pandas
+* **Machine Learning:** Scikit-Learn (Isolation Forest)
+* **Visualization:** Matplotlib, Seaborn
+
+> ⚠️ **Note:** Source code is available upon request for demonstration purposes.
